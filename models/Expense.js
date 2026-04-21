@@ -5,16 +5,27 @@ const expenseSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  type: {
+    type: String,
+    enum: ['expense', 'income'],
+    default: 'expense'
+  },
   category: {
     type: String,
     required: true
   },
   description: {
-    type: String
+    type: String,
+    default: ''
   },
   date: {
     type: Date,
     required: true
+  },
+  status: {
+    type: String,
+    enum: ['Completed', 'Pending', 'Failed'],
+    default: 'Completed'
   }
 }, {
   timestamps: true
