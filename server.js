@@ -9,7 +9,12 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:4200' // your Angular dev server
+  origin: [
+    'http://localhost:4200',
+    'https://expense-tracker-frontend-puce-seven.vercel.app'  // ← your live frontend URL
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 }));
 app.use(express.json());
 
